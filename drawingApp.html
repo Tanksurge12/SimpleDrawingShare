@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='drawingApp.css'/>
+	<script src='drawingApp.js'></script>
+</head>
+<body class=body>
+<style>
+.body {
+    background: #555;
+    color: #fff;
+}
+</style>
+
+<menu class=topmenu>
+
+<div id="menu" class="menu">
+<div class=menuTXT>Menu</div>
+    <div class=menucontent>
+        <div class=home onclick="loadPage('home')">
+        Home</div>
+        <div class=appinfo onclick="loadPage('info')">
+        App Info</div>
+        <div class=contact onclick="loadPage('contact')">
+        Contact</div>
+  </div>
+</div>
+
+</menu>
+
+<page id="home" class=mainpage>
+<style>
+.mainpage {
+    visibility: hidden;
+}
+</style>
+<head>
+<br>
+<br>
+<br>
+<br>
+Simple Drawing Share
+<br>
+<br>
+
+<div class=startappbtn onclick="loadPage('drawingApp')">
+    <div class=startappbtnTXT>
+    Start App
+    </div>
+</div>
+
+</head>
+</page>
+
+<page id="info" class=infopage>
+<style>
+.infopage {
+    visibility: hidden;
+}
+</style>
+</page>
+
+<page id="contactPage" class=contactpage>
+<style>
+.contactpage {
+    visibility: hidden;
+}
+</style>
+</page>
+
+<page id="drawingApp" class=drawingapp>
+<style>
+.drawingapp {
+    position: absolute;
+    top: 80px;
+    visibility: visible;
+}
+</style>
+
+<canvas id="myCanvas" class=canvas width="800" height="375" style="border:1px solid #000000; position: relative;" 
+onmousedown="mouseDown(event)"
+onmousemove="mouseMove(event)"
+onmouseup="mouseUp()">
+</canvas>
+
+<input id="widthField" class=widthField value=2
+onfocusout="
+setLineWidth(getLineWidthByTextField('widthField'))">
+</input>
+<div id="width" class=widthText>Width</div>
+
+<input id="itr" class=lineIterationsField value="1"
+onfocusout="setLineIterations()">
+</input>
+<div id="TXT" class=lineIterationsText onfocusout="setLnItr()">Line Iteraitons</div>
+
+<div id="clear" class=clear onclick="clear()">
+    <div id="clearTXT" class=clearTXT>Clear</div>
+</div>
+
+<div id="LIinfoBtn" class=LIinfoBtn onclick="LIBtnClicked()">
+    <div id="LIinfoBtnTXT" class=LIinfoBtnTXT>Info</div>
+</div>
+<div id="LIinfo" class=LIinfo>
+<style>
+.LIinfo {
+    visibility: hidden;
+}
+</style>
+These are rays created from where<br>the mouse is first clicked down to<br>the mouse. The number is how<br>many rays are created.<br>(recomended you keep it at 1)
+</div>
+
+<div id="colorInput" class=colorParent>
+    <input id="hex" class=hex value=#000000
+    onfocusout=
+    "changeColor(getHexValueByTextField('hex'))">
+    </input>
+    <div id="hexTXT" class=hexTXT>Hex</div>
+</div>
+
+<div id="drawSquare" class=drawSquare onclick="drawSquare()">
+    <div id="drawSquareTXT" class=drawSquareTXT>
+    Draw Square
+    </div>
+</div>
+<div id="isDrawingSquare" class=isDrawingSquare onclick=
+"drawingSquare=true; drawingCirlce=false; drawingLine=false;">
+    <style>
+    .drawingSquareTXT {
+        position: absolute;
+        left: 420px;
+        bottom: 75px;
+        visibility: hidden;
+    }
+    </style>
+    <div id="drawingSquareTXT" class=drawingSquareTXT>WIP</div>
+</div>
+
+<div id="drawCircle" class=drawCircle onclick="drawCircle()">
+    <div id="drawCircleTXT" class=drawCircleTXT>
+    Draw Circle
+    </div>
+</div>
+<div id="isDrawingCircle" class=isDrawingCircle onclick=
+"drawingSquare=false; drawingCirlce=true; drawingLine=false;">
+    <style>
+    .drawingCircleTXT {
+        position: absolute;
+        left: 550px;
+        bottom: 75px;
+        visibility: hidden;
+    }
+    </style>
+    <div id="drawingCircleTXT" class=drawingCircleTXT>WIP</div>
+</div>
+
+<div id="drawLine" class=drawLine onclick="drawLine()">
+    <div id="drawLineTXT" class=drawLineTXT>
+    Draw Line
+    </div>
+</div>
+<div id="isDrawingLine" class=isDrawingLine>
+    <style>
+    .drawingLineTXT {
+        position: absolute;
+        left: 674px;
+        top: 585px;
+        visibility: hidden;
+    }
+    </style>
+    <div id="drawingLineTXT" class=drawingLineTXT>Drawing</div>
+</div>
+
+</page>
+
+</body>
+</html>
